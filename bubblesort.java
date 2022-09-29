@@ -1,13 +1,12 @@
     public static void countSwaps(List<Integer> a) {
-    // Write your code here
- int n = a.size();
+        int n = a.size();
         int temp;
         long swaps = 0;
         boolean swaped;
         
         for(int i=0; i<n; i++){
-            swaped =false;
-            for(int j =0 ;j<n-i-1;j++){
+            swaped = false;
+            for(int j =0 ;j<n-1;j++){
                if(a.get(j)>a.get(j+1)){
                   temp = a.get(j);
                   a.set(j,a.get(j+1));
