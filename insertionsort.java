@@ -5,15 +5,15 @@
         System.out.println();
     }
     public static void insertionSort1(int n, List<Integer> arr) {
-        int key = arr.get(arr.size()-1);
+        int current = arr.get(arr.size()-1);
         int j = arr.size()-2;
         
-        while(j>=0 && arr.get(j)>key){
+        while(j>=0 && arr.get(j)>current){
             arr.set(j+1, arr.get(j));
             j--;
             print(arr);
         }
         
-        arr.set(j+1, key);
+        arr.set(j+1, current);
         print(arr);
-    }
+    }   
