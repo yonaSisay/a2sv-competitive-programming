@@ -1,16 +1,9 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        left = 0 
-        right = len(numbers)-1
-        ans = []
-        while left<right:
-            sum_ = numbers[left]+numbers[right]
-            if sum_ > target:
-                right -=1
-            elif sum_ < target:
-                left +=1
-            elif sum_ == target:
-                ans.append( left+1)
-                ans.append(right+1)
-                break
-        return ans
+        dict_ = {}
+        
+        for i,val in enumerate(numbers):
+            dif = target-numbers[i]
+            if dif in dict_: 
+                return [min(i+1,dict_[dif]+1),max(i+1,dict_[dif]+1)]
+            dict_[numbers[i]] = i
