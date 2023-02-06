@@ -2,14 +2,10 @@ class Solution:
     def countDistinctIntegers(self, nums: List[int]) -> int:
         arr = []
         for num1 in nums:
-            num = num1
-            reversed_num = 0
-            while num != 0:
-                digit = num % 10
-                reversed_num = reversed_num * 10 + digit
-                num //= 10
-            arr.append(reversed_num)
-        
+            num1 = str(num1)
+            v = num1[::-1]
+            arr.append(int(v))
+            
         setn = set()
         nums.extend(arr)
         setn.update(nums)
