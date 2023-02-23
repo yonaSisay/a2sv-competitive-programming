@@ -3,13 +3,21 @@ class Solution:
         minn = float('inf')
         left = 0
         summ = 0
-        
-        for i in range(len(nums)):
-            summ += nums[i]
-            while summ >= target:
-                minn = min(minn, i - left + 1)
+        right = 0
+        while  right < len(nums):
+            if summ < target:
+                summ += nums[right]
+                right += 1
+            elif summ >= target:
+                minn = min(minn, right - left)
                 summ -= nums[left]
                 left += 1
-                
-        return minn if minn != float('inf') else 0
+            print(summ)
+        while summ >= target:
+            minn = min(minn, abs(right - left))
+            summ -= nums[left]
+            left += 1
+        return minn if minn != float(inf) else 0
+        
+
                 
