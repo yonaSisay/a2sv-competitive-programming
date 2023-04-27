@@ -7,9 +7,7 @@ class Solution:
         inbound = lambda x,y: 0 <= x < row and 0 <= y < col
 
         queue = deque()
-        path = []
         queue.append((0,0))
-        path.append((0,0))
         level = 0
         
         if grid[0][0]:
@@ -30,7 +28,6 @@ class Solution:
                     if (nr,nc) == (row,row):
                         return level
                     if inbound(nr,nc) and not grid[nr][nc]:
-                        path.append((nr,nc))
                         queue.append((nr,nc))
                         grid[nr][nc] = 1
         return -1
