@@ -27,15 +27,16 @@ class Solution:
         def union(x, y):
             xrep = find(x)
             yrep = find(y)
+
             if xrep == yrep:
-                return [x,y]
+                return
+                
             if size[xrep] > size[yrep]:
                 rep[yrep] = rep[xrep]
                 size[xrep]+=size[yrep]
             else:
                 rep[xrep] = rep[yrep]
                 size[yrep]+=size[xrep]
-            return None
             
         
         for i in range(n):
