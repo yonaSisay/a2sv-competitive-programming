@@ -1,0 +1,32 @@
+class Solution:
+    def equationsPossible(self, equations: List[str]) -> bool:
+        rep = defaultdict(str)
+        ans = []
+
+        def find(x):
+            if x not in rep:
+                rep[x] = x
+            if x == rep[x]:
+                return x
+            rep[x] = find(rep[x])
+            return rep[x]
+        
+        def union(x,y):
+            parx  = find(x)
+            pary = find(y)
+
+            if parx != pary:
+                rep[parx] = pary
+
+        for charr in equations:
+            x , no, eq, y = list(charr)
+
+            if no == "=":
+                union(x,y)
+            else:
+                ans.append((x,y))
+            
+        for x,y in ans:
+            if find(x) == find(y):
+                return False
+        return True
